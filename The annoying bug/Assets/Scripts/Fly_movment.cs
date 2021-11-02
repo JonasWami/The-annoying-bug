@@ -7,11 +7,16 @@ public class Fly_movment : MonoBehaviour
     public float UpAndDownSpeed;
     public float LeftAndRightSpeed;
     public float ForwardSpeed;
+
+    //Components
     Rigidbody rb;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
+        //assagning component variables
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,6 +27,9 @@ public class Fly_movment : MonoBehaviour
         {
             rb.AddRelativeForce(Vector3.right * -ForwardSpeed * Time.deltaTime);
 
+            // Play animation
+            anim.Play("Fly animation");
+
         }
          //Rotate Right
         if (Input.GetKey(KeyCode.D))
@@ -30,6 +38,9 @@ public class Fly_movment : MonoBehaviour
 
             // Freeze physics rotation
             rb.freezeRotation = true;
+
+            // Play animation
+            anim.Play("Fly animation");
         }
         //Rotate left
        if(Input.GetKey(KeyCode.A))
@@ -38,7 +49,10 @@ public class Fly_movment : MonoBehaviour
 
             // Freeze physics rotation
             rb.freezeRotation = true;
-        
+
+            // Play animation
+            anim.Play("Fly animation");
+
         }
        //Rotate up
       else  if(Input.GetKey(KeyCode.W))
@@ -47,6 +61,9 @@ public class Fly_movment : MonoBehaviour
 
             // Freeze physics rotation
             rb.freezeRotation = true;
+
+            // Play animation
+            anim.Play("Fly animation");
         }
        // rotate down
       else  if(Input.GetKey(KeyCode.S))
@@ -55,12 +72,18 @@ public class Fly_movment : MonoBehaviour
 
             // Freeze physics rotation
             rb.freezeRotation = true;
+
+            // Play animation
+            anim.Play("Fly animation");
         }
 
        else
         {
             //Start physics rotation
             rb.freezeRotation = false;
+            
+            
+            
         }
         
       
