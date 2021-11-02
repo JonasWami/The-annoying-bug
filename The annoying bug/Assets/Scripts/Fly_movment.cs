@@ -19,27 +19,27 @@ public class Fly_movment : MonoBehaviour
     {
          if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * ForwardSpeed * Time.deltaTime);
+            rb.AddRelativeForce(Vector3.right * -ForwardSpeed * Time.deltaTime);
 
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0, 0, 1 * -LeftAndRightSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.up * LeftAndRightSpeed * Time.deltaTime);
         }
        if(Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0, 0, 1 * LeftAndRightSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.up * -LeftAndRightSpeed * Time.deltaTime);
         
         }
-        if(Input.GetKey(KeyCode.W))
+      else  if(Input.GetKey(KeyCode.W))
         {
-            transform.Rotate(Vector3.right * -UpAndDownSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.forward * -UpAndDownSpeed * Time.deltaTime);
         }
-        if(Input.GetKey(KeyCode.S))
+      else  if(Input.GetKey(KeyCode.S))
         {
-            transform.Rotate(Vector3.right * UpAndDownSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.forward * UpAndDownSpeed * Time.deltaTime);
         }
-
+        
       
       
     }
