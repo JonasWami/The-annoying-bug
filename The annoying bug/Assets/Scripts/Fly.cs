@@ -9,8 +9,11 @@ public class Fly : MonoBehaviour
     public float LeftAndRightSpeed;
     public float ForwardSpeed;
 
-    // Sound clips
+    //other
+    public bool IsStandingStill = true;
+
     
+
 
     //Component variables
     Animator anim;
@@ -33,14 +36,19 @@ public class Fly : MonoBehaviour
         //Forward velocity
          if (Input.GetKey(KeyCode.Space))
         {
+            
+
             rb.AddRelativeForce(Vector3.right * -ForwardSpeed * Time.deltaTime);
 
-            
-            
+            IsStandingStill = false;
+
         }
          //Rotate Right
         if (Input.GetKey(KeyCode.D))
         {
+
+            IsStandingStill = false;
+
             transform.Rotate(Vector3.up *  LeftAndRightSpeed * Time.deltaTime);
 
             
@@ -50,6 +58,8 @@ public class Fly : MonoBehaviour
         //Rotate left
        if(Input.GetKey(KeyCode.A))
         {
+            IsStandingStill = false;
+
             transform.Rotate(Vector3.up * -LeftAndRightSpeed * Time.deltaTime);
 
             
@@ -60,6 +70,8 @@ public class Fly : MonoBehaviour
        //Rotate up
       else  if(Input.GetKey(KeyCode.W))
         {
+            IsStandingStill = false;
+
             transform.Rotate(Vector3.forward * -UpAndDownSpeed * Time.deltaTime);
 
             
@@ -69,6 +81,8 @@ public class Fly : MonoBehaviour
        // rotate down
       else  if(Input.GetKey(KeyCode.S))
         {
+            IsStandingStill = false;
+
             transform.Rotate(Vector3.forward * UpAndDownSpeed * Time.deltaTime);
 
            
@@ -78,7 +92,9 @@ public class Fly : MonoBehaviour
 
        else
         {
-            
+
+            IsStandingStill = true;
+
             //Start physics rotation
             rb.freezeRotation = false;
         }

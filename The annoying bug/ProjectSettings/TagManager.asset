@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - roof
+  - Human area
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - roof
   - Water
   - UI
   - 
